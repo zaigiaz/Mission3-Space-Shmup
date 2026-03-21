@@ -30,12 +30,8 @@ public class Enemy : MonoBehaviour
     {
 	Move();	
 
-	if ( bndCheck != null && !bndCheck.isOnScreen ) {                     // c 
-	    // Check to make sure it's gone off the bottom of the screen 
-	    if (pos.y < bndCheck.camHeight - bndCheck.radius) {             // d 
-		// We're off the bottom, so destroy this GameObject 
+	if ( bndCheck != null && bndCheck.offDown ) {                   
 		Destroy(gameObject); 
-	    }
       }
 }
     
