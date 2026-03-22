@@ -6,6 +6,8 @@ using UnityEngine;
 
     static public Hero S; // Singleton                                // a 
 
+    private GameObject lastTriggerGo = null;
+
      [Header( "Set in Inspector" )] 
      // These fields control the movement of the ship
      public float speed = 30 ; 
@@ -13,8 +15,9 @@ using UnityEngine;
      public float rollMult = - 45 ; 
      public float pitchMult = 30 ; 
 
-     [Header( "Set Dynamically" )] 
-     public float shieldLevel = 1 ; 
+    [SerializeField]
+    private float _shieldLevel = 1;
+
 
      void Awake() { 
 	if (S == null ) { 
@@ -41,8 +44,32 @@ using UnityEngine;
 
 
     void OnTriggerEnter(Collider other) {
-	print("Triggered: " + other.gameObject.name);
+	Transform rootT = other.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+
+	if(go == lastTriggerGo) {
+	    return;
+	}
+
+	if(go.tag == "Enemy") {
+	    shieldLevel--;
+	    Destroy(go);
+	} else {
+	print("Triggered: " + go.name);
+	}
+
     }
+
+    
+    public float shieldLevel  {
+	get {
+	    return( _shieldLevel);
+	} set {
+	    _shieldLevel = Mathf.Min(value, 4);
+	    if(value < 0) { Destroy(this.gameObject); }
+	}
+    }
+
 
 }
 

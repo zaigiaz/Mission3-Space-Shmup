@@ -318,6 +318,8 @@ MonoBehaviour:
   prefabEnemies:
   - {fileID: 3568175934604056008, guid: df9e34e59fd0de0b091ec05820e86334, type: 3}
   - {fileID: 2927895961746736965, guid: 736758fd4ad62e24d8c396c720cfb355, type: 3}
+  - {fileID: 4145720676638696176, guid: 64de44a9928ce3033b1d1a49e806c50e, type: 3}
+  - {fileID: 8724120377347302026, guid: e9020d945fae461428a959d0f703cd57, type: 3}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
 --- !u!114 &963194230
@@ -355,6 +357,10 @@ PrefabInstance:
     - target: {fileID: 4559262916816945479, guid: fa9c3ed3ea64bf29089a16408696702d, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559262916816945482, guid: fa9c3ed3ea64bf29089a16408696702d, type: 3}
+      propertyPath: levelShown
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4559262918111865085, guid: fa9c3ed3ea64bf29089a16408696702d, type: 3}
       propertyPath: m_Layer
