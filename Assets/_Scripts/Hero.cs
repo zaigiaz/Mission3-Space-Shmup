@@ -1,5 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine;
 
  public class Hero : MonoBehaviour {
 
@@ -38,5 +39,11 @@ using System.Collections.Generic;using UnityEngine;
 	transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0); 
     }
 
+
+    void OnTriggerEnter(Collider other) {
+	print("Triggered: " + other.gameObject.name);
+    }
+
 }
+
 
