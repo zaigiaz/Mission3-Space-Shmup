@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoundsCheck : MonoBehaviour {                                    // a 
+public class BoundsCheck : MonoBehaviour {                                    
 
 [Header( "Set in Inspector" )] 
 public float radius = 1f ; 
@@ -17,12 +17,12 @@ public float radius = 1f ;
  public bool isOnScreen = true;
 
   void Awake() { 
-    camHeight = Camera .main.orthographicSize;                             // b 
-    camWidth = camHeight * Camera .main.aspect;          // c 
+    camHeight = Camera .main.orthographicSize;                             
+    camWidth = camHeight * Camera .main.aspect;          
   } 
 
 
- void LateUpdate () {                             // d 
+ void LateUpdate () {                             
     Vector3 pos = transform.position; 
     isOnScreen = true;
     offRight = offLeft = offUp = offDown = false ;

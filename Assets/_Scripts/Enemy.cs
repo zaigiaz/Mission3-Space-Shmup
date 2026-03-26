@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float fireRate = 0.3f;
     public float health = 10;
     public float score = 100;
-    private BoundsCheck bndCheck;
+    protected BoundsCheck bndCheck;
 
     public Vector3 pos {
 	get {
