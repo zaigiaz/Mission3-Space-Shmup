@@ -14,6 +14,7 @@ using UnityEngine;
 
      public float rollMult = - 45 ; 
      public float pitchMult = 30 ; 
+     public float gameRestartDelay = 2f;
 
     [SerializeField]
     private float _shieldLevel = 1;
@@ -66,7 +67,10 @@ using UnityEngine;
 	    return( _shieldLevel);
 	} set {
 	    _shieldLevel = Mathf.Min(value, 4);
-	    if(value < 0) { Destroy(this.gameObject); }
+	    if(value < 0) { 
+		Destroy(this.gameObject); 
+		Main.S.DelayedRestart(gameRestartDelay);
+	    }
 	}
     }
 
