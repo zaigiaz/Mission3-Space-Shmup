@@ -33,20 +33,24 @@ public float radius = 1f ;
 	isOnScreen = false;
 	offRight = true;
     } 
+
      if (pos.x < -camWidth + radius) { 
 	pos.x = -camWidth + radius; 
 	isOnScreen = false;
 	offLeft = true;
     } 
+
      if (pos.y > camHeight - radius) { 
 	pos.y = camHeight - radius; 
 	isOnScreen = false;
 	offUp = true;
-    } 
+    }
+
     if (pos.y < -camHeight + radius) { 
 	pos.y = -camHeight + radius;
+	isOnScreen = false;
 	offDown = true;
- } 
+    } 
 
     isOnScreen = !(offRight || offLeft || offUp || offDown);
     if(keepOnScreen && !isOnScreen) {
