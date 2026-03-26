@@ -15,6 +15,8 @@ using UnityEngine;
      public float rollMult = - 45 ; 
      public float pitchMult = 30 ; 
      public float gameRestartDelay = 2f;
+     public GameObject projectilePrefab;
+     public float projectileSpeed = 40;
 
     [SerializeField]
     private float _shieldLevel = 1;
@@ -41,6 +43,19 @@ using UnityEngine;
 
 	// Rotate the ship to make it feel more dynamic                      // c 
 	transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0); 
+
+	if(Input.GetKeyDown(KeyCode.Space)) {
+	    TempFire();
+	}
+
+    }
+
+    void TempFire() {
+	GameObject projGO = Instantiate<GameObject>(projectilePrefab);
+	projGO.transform.position = transform.position;
+	Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
+	rigidB.velocity = Vector3.up * projectileSpeed;
+	
     }
 
 

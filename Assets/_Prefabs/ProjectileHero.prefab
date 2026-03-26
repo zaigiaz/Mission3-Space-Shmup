@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2789092131138755178}
   - component: {fileID: 7561284035050417361}
   - component: {fileID: 4319994163975205203}
+  - component: {fileID: 4582696302453455816}
   m_Layer: 10
   m_Name: ProjectileHero
   m_TagString: ProjectileHero
@@ -114,3 +115,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &4582696302453455816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463585123086470244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fa154a8ac2f383ba3c6744b8ce42c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

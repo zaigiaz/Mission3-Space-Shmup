@@ -25,6 +25,18 @@ public class Enemy : MonoBehaviour
     }
 
 
+    void OnCollisionEnter(Collision coll) {
+	GameObject otherGO = coll.gameObject;
+	if(otherGO.tag == "ProjectileHero") {
+	    Destroy(otherGO);
+	    Destroy(gameObject);
+	} else {
+	    print("Enemy hit by non-ProjectileHero: " + otherGO.name);
+	}
+	
+    }
+
+
     // Update is called once per frame
     void Update()
     {

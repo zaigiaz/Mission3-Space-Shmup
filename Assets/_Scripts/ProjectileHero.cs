@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ProjectileHero : MonoBehaviour
 {
+
+    private BoundsCheck bndCheck;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+	bndCheck = GetComponent<BoundsCheck>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(bndCheck.offUp) {
+	    Destroy(gameObject);
+	}
     }
 }
