@@ -12,6 +12,7 @@ using UnityEngine.SceneManagement; // For loading & reloading of scenes
     public float enemySpawnPerSecond = 0.5f ; // # Enemies/second 
     public float enemyDefaultPadding = 1.5f ; // Padding for position 
     private BoundsCheck      bndCheck; 
+    public WeaponDefinition [] weaponDefinitions;
 
      void Awake() { 
 	S = this ; 
