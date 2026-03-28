@@ -31,7 +31,7 @@ using UnityEngine;
 	} else { 
 	    Debug.LogError( "Hero.Awake() - Attempted to assign second Hero.S!" ); 
 	} 
-	fireDelegate += TempFire;
+	// fireDelegate += TempFire;
     } 
 
      void Update () {

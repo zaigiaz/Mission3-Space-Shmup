@@ -25,17 +25,31 @@ public class Enemy : MonoBehaviour
     }
 
 
-    void OnCollisionEnter(Collision coll) {
-	GameObject otherGO = coll.gameObject;
-	if(otherGO.tag == "ProjectileHero") {
-	    Destroy(otherGO);
-	    Destroy(gameObject);
-	} else {
-	    print("Enemy hit by non-ProjectileHero: " + otherGO.name);
-	}
-	
+    void OnCollisionEnter( Collision coll ) { 
+	GameObject otherGO = coll.gameObject; 
+	switch (otherGO.tag) { 
+	    case "ProjectileHero": 
+		ProjectileHero p = otherGO.GetComponent<ProjectileHero>(); 
+		// If this Enemy is off screen, don't damage it. 
+		if ( !bndCheck.isOnScreen ) { 
+		    Destroy( otherGO ); 
+		    break; 
+		} 
+		 // Hurt this Enemy 
+		    // Get the damage amount from the Main WEAP_DICT. 
+		    health -= Main .GetWeaponDefinition(p.type).damageOnHit; 
+		if (health <= 0 ) { 
+		    // Destroy this Enemy 
+		    Destroy(this.gameObject); 
+		} 
+                Destroy(otherGO); 
+		break; 
+		
+	     default: 
+                print( "Enemy hit by non-ProjectileHero: " + otherGO.name ); // f 
+		break; 
+		 } 
     }
-
 
     // Update is called once per frame
     void Update()
