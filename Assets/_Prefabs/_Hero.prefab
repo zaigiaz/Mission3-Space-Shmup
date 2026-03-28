@@ -361,7 +361,7 @@ MonoBehaviour:
   gameRestartDelay: 2
   projectilePrefab: {fileID: 2463585123086470244, guid: dcdbe4670097e65c1bce0cb57eb92038, type: 3}
   projectileSpeed: 40
-  _shieldLevel: 5
+  _shieldLevel: 4
 --- !u!54 &4559262918479896210
 Rigidbody:
   m_ObjectHideFlags: 0

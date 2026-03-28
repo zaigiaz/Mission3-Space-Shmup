@@ -18,16 +18,20 @@ using UnityEngine;
      public GameObject projectilePrefab;
      public float projectileSpeed = 40;
 
+     public delegate void WeaponFireDelegate();
+     public WeaponFireDelegate fireDelegate;
+
     [SerializeField]
     private float _shieldLevel = 1;
 
 
      void Awake() { 
 	if (S == null ) { 
-	    S = this ; // Set the Singleton                                    // a 
+	    S = this ; // Set the Singleton                                 
 	} else { 
 	    Debug.LogError( "Hero.Awake() - Attempted to assign second Hero.S!" ); 
 	} 
+	fireDelegate += TempFire;
     } 
 
      void Update () {
@@ -41,21 +45,24 @@ using UnityEngine;
 	pos.y += yAxis * speed * Time.deltaTime; 
 	transform.position = pos; 
 
-	// Rotate the ship to make it feel more dynamic                      // c 
+	// Rotate the ship to make it feel more dynamic                     
 	transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0); 
 
-	if(Input.GetKeyDown(KeyCode.Space)) {
-	    TempFire();
-	}
-
+	if (Input.GetAxis("Jump") == 1 && fireDelegate != null) {            
+	    fireDelegate();                                                 
+        } 
     }
 
     void TempFire() {
 	GameObject projGO = Instantiate<GameObject>(projectilePrefab);
 	projGO.transform.position = transform.position;
 	Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
-	rigidB.velocity = Vector3.up * projectileSpeed;
+	// rigidB.velocity = Vector3.up * projectileSpeed;
 	
+	ProjectileHero proj = projGO.GetComponent<ProjectileHero>();                
+	proj.type = WeaponType.blaster; 
+	float tSpeed = Main.GetWeaponDefinition( proj.type ).velocity; 
+	rigidB.velocity = Vector3.up * tSpeed;
     }
 
 
