@@ -69,6 +69,12 @@ MonoBehaviour:
   fireRate: 0.3
   health: 10
   score: 100
+  showDamageDuration: 0.1
+  originalColors: []
+  materials: []
+  showingDamage: 0
+  damageDoneTime: 0
+  notifiedOfDestruction: 0
 --- !u!114 &-4596620325370965913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,12 +108,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5848fa1122f62be83960406f0de8aea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 2
   fireRate: 0.3
   health: 10
   score: 100
-  waveFrequency: 2
-  waveWidth: 4
+  showDamageDuration: 0.1
+  originalColors: []
+  materials: []
+  showingDamage: 0
+  damageDoneTime: 0
+  notifiedOfDestruction: 0
+  waveFrequency: 10
+  waveWidth: 15
   waveRotY: 45
 --- !u!1 &2064563178147542655
 GameObject:

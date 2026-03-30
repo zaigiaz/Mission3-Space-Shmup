@@ -1,0 +1,3 @@
+# Overview
+I implemented all 5 enemies, scrolling starfield background and implemented the blue spread-shot from chapter 32 on top
+to make the game cooler. I also tweaked the variables of Enemy_0 to use a much larger sine wave for movement.
